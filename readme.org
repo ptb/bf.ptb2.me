@@ -1,0 +1,1506 @@
+* Project Setup
+:properties:
+:header-args: :cache yes :comments no :mkdirp yes :padline yes :results silent
+:end:
+#+startup: showall hideblocks hidestars indent
+
+** Table of Contents                                                   :TOC:
+- [[#project-setup][Project Setup]]
+  - [[#caniusejson][.caniuse.json]]
+  - [[#gitignore][.gitignore]]
+  - [[#sass-lintyml][.sass-lint.yml]]
+  - [[#gatsby-nodejs][gatsby-node.js]]
+  - [[#gatsby-configjs][gatsby-config.js]]
+  - [[#netlifytoml][netlify.toml]]
+  - [[#packagejson][package.json]]
+  - [[#patchdiff][patch.diff]]
+  - [[#srchtmljs][src/html.js]]
+  - [[#srclayoutsindexjs][src/layouts/index.js]]
+  - [[#srcpagesindexjs][src/pages/index.js]]
+  - [[#srcpagesindexsass][src/pages/index.sass]]
+  - [[#srcpartsajs][src/parts/a.js]]
+  - [[#srcpartsasass][src/parts/a.sass]]
+  - [[#srcpartsbjs][src/parts/b.js]]
+  - [[#srcpartscjs][src/parts/c.js]]
+  - [[#srcpostskeep][src/posts/.keep]]
+  - [[#statickeep][static/.keep]]
+  - [[#examplehtml][example.html]]
+  - [[#animated][animated]]
+
+** .caniuse.json
+
+#+begin_src js
+var d=JSON.parse(localStorage["usage-data-by-id"]),e=document.createElement("a");e.setAttribute("href","data:text/plain;charset=utf-8,"+encodeURIComponent(JSON.stringify(d[function(){for(var e in d)return e}()]))),e.setAttribute("download","stats.json"),document.body.appendChild(e),e.click(),document.body.removeChild(e);
+#+end_src
+
+#+begin_src sh
+sed -E 's/([0-9]+\.[0-9]{5})[0-9]+/\1/g' stats.json > .caniuse.json
+#+end_src
+
+#+HTML: <details>
+#+begin_src json :tangle .caniuse.json
+{
+  "dataByBrowser": {
+    "and_chr": {
+      "64": 1.04384
+    },
+    "and_ff": {
+      "57": 0
+    },
+    "and_qq": {
+      "1.2": 0
+    },
+    "and_uc": {
+      "11.8": 0
+    },
+    "android": {
+      "3": 0,
+      "4": 0,
+      "62": 0,
+      "2.1": 0,
+      "2.2": 0,
+      "2.3": 0,
+      "4.1": 0,
+      "4.2-4.3": 0,
+      "4.4": 0,
+      "4.4.3-4.4.4": 0
+    },
+    "baidu": {
+      "7.12": 0
+    },
+    "bb": {
+      "7": 0,
+      "10": 0
+    },
+    "chrome": {
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0,
+      "16": 0,
+      "17": 0,
+      "18": 0,
+      "19": 0,
+      "20": 0,
+      "21": 0,
+      "22": 0,
+      "23": 0,
+      "24": 0,
+      "25": 0,
+      "26": 0,
+      "27": 0,
+      "28": 0,
+      "29": 0,
+      "30": 0,
+      "31": 0,
+      "32": 0.58455,
+      "33": 0.04175,
+      "34": 0,
+      "35": 0,
+      "36": 0,
+      "37": 0,
+      "38": 0,
+      "39": 0,
+      "40": 0,
+      "41": 0,
+      "42": 0,
+      "43": 0,
+      "44": 0,
+      "45": 0,
+      "46": 0,
+      "47": 0,
+      "48": 0.04175,
+      "49": 0.12526,
+      "50": 0.62630,
+      "51": 0.08350,
+      "52": 0.20876,
+      "53": 0.12526,
+      "54": 0.37578,
+      "55": 0.50104,
+      "56": 0.25052,
+      "57": 0.41753,
+      "58": 1.04384,
+      "59": 1.50313,
+      "60": 21.50313,
+      "61": 18.28810,
+      "62": 10.89770,
+      "63": 17.36951,
+      "64": 2.50521,
+      "65": 0.33402,
+      "66": 0,
+      "67": 0
+    },
+    "edge": {
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0,
+      "16": 0,
+      "17": 0
+    },
+    "firefox": {
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0,
+      "16": 0,
+      "17": 0,
+      "18": 0,
+      "19": 0,
+      "20": 0,
+      "21": 0,
+      "22": 0,
+      "23": 0,
+      "24": 0,
+      "25": 0,
+      "26": 0,
+      "27": 0,
+      "28": 0,
+      "29": 0,
+      "30": 0,
+      "31": 0,
+      "32": 0,
+      "33": 0,
+      "34": 0,
+      "35": 0,
+      "36": 0,
+      "37": 0,
+      "38": 0,
+      "39": 0,
+      "40": 0,
+      "41": 0,
+      "42": 0,
+      "43": 0,
+      "44": 0,
+      "45": 0.08350,
+      "46": 0,
+      "47": 0.20876,
+      "48": 0.20876,
+      "49": 0.25052,
+      "50": 3.08977,
+      "51": 0,
+      "52": 0.33402,
+      "53": 0.62630,
+      "54": 0.79331,
+      "55": 2.33820,
+      "56": 1.50313,
+      "57": 2.54697,
+      "58": 0.91858,
+      "59": 0.29227,
+      "60": 0,
+      "61": 0,
+      "3.5": 0,
+      "3.6": 0
+    },
+    "ie": {
+      "6": 0,
+      "7": 0,
+      "8": 0.79331,
+      "9": 0.12526,
+      "10": 0.12526,
+      "11": 0.58455
+    },
+    "ie_mob": {
+      "10": 0,
+      "11": 0
+    },
+    "ios_saf": {
+      "8": 0.50104,
+      "10.0-10.2": 0,
+      "10.3": 0.25052,
+      "11.0-11.2": 0.12526,
+      "11.3": 0,
+      "3.2": 0,
+      "4.0-4.1": 0,
+      "4.2-4.3": 0.04175,
+      "5.0-5.1": 0,
+      "6.0-6.1": 0,
+      "7.0-7.1": 0,
+      "8.1-8.4": 0,
+      "9.0-9.2": 0,
+      "9.3": 0.04175
+    },
+    "op_mini": {
+      "all": 0
+    },
+    "op_mob": {
+      "12": 0,
+      "37": 0,
+      "12.1": 0
+    },
+    "opera": {
+      "15": 0,
+      "16": 0,
+      "17": 0,
+      "18": 0,
+      "19": 0,
+      "20": 0,
+      "21": 0,
+      "22": 0,
+      "23": 0,
+      "24": 0,
+      "25": 0,
+      "26": 0,
+      "27": 0,
+      "28": 0,
+      "29": 0,
+      "30": 0,
+      "31": 0,
+      "32": 0,
+      "33": 0,
+      "34": 0,
+      "35": 0,
+      "36": 0,
+      "37": 0,
+      "38": 0,
+      "39": 0,
+      "40": 0,
+      "41": 0,
+      "42": 0,
+      "43": 0,
+      "44": 0.33402,
+      "45": 0.04175,
+      "46": 0.04175,
+      "47": 0.04175,
+      "48": 0.12526,
+      "49": 0.20876,
+      "50": 0.08350,
+      "51": 0,
+      "52": 0,
+      "10.0-10.1": 0,
+      "11.5": 0,
+      "12.1": 0
+    },
+    "safari": {
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0.08350,
+      "9": 0.29227,
+      "10": 0.16701,
+      "11": 1.41962,
+      "10.1": 0.50104,
+      "11.1": 0,
+      "3.1": 0,
+      "3.2": 0,
+      "5.1": 0.08350,
+      "6.1": 0,
+      "7.1": 0,
+      "9.1": 0,
+      "TP": 0
+    },
+    "samsung": {
+      "4": 0,
+      "5": 0,
+      "6.2": 0
+    }
+  },
+  "id": "71568934|undefined",
+  "meta": {
+    "end_date": "2018-02-15",
+    "start_date": "2017-08-15"
+  },
+  "name": "ptb2.me",
+  "source": "google_analytics",
+  "type": "custom",
+  "uid": "custom.71568934|undefined"
+}
+#+end_src
+#+HTML: </details>
+
+** .gitignore
+
+#+begin_src gitignore :tangle .gitignore
+/.cache/
+/node_modules/
+#+end_src
+
+** .sass-lint.yml
+
+#+HTML: <details>
+#+begin_src yaml :tangle .sass-lint.yml
+rules:
+  bem-depth: 0
+  border-zero:
+    - 1
+    -
+      convention: 0
+  brace-style: 0
+  class-name-format:
+    - 1
+    -
+      allow-leading-underscore: false
+      convention: hyphenatedlowercase
+  clean-import-paths:
+    - 1
+    -
+      leading-underscore: true
+      filename-extension: true
+  empty-args:
+    - 1
+    -
+      include: true
+  empty-line-between-blocks: 0
+  extends-before-declarations: 1
+  extends-before-mixins: 1
+  final-newline: 0
+  force-attribute-nesting: 1
+  force-element-nesting: 1
+  force-pseudo-nesting: 1
+  function-name-format:
+    - 1
+    -
+      allow-leading-underscore: false
+      convention: hyphenatedlowercase
+  hex-length:
+    - 1
+    -
+      style: short
+  hex-notation:
+    - 1
+    -
+      style: lowercase
+  id-name-format:
+    - 1
+    -
+      allow-leading-underscore: false
+      convention: hyphenatedlowercase
+  indentation: 0
+  leading-zero:
+    - 1
+    -
+      include: true
+  mixin-name-format:
+    - 1
+    -
+      allow-leading-underscore: false
+      convention: hyphenatedlowercase
+  mixins-before-declarations: 1
+  nesting-depth:
+    - 1
+    -
+      max-depth: 3
+  no-color-keywords: 1
+  no-color-literals: 1
+  no-css-comments: 1
+  no-debug: 1
+  no-duplicate-properties: 0
+  no-empty-rulesets: 1
+  no-extends: 0
+  no-ids: 1
+  no-important: 1
+  no-invalid-hex: 1
+  no-mergeable-selectors: 1
+  no-misspelled-properties: 1
+  no-qualifying-elements:
+    - 1
+    -
+      allow-element-with-attribute: true
+      allow-element-with-class: false
+      allow-element-with-id: false
+  no-trailing-zero: 1
+  no-transition-all: 1
+  no-url-protocols: 1
+  no-vendor-prefixes: 0
+  no-warn: 1
+  one-declaration-per-line: 1
+  placeholder-in-extend: 0
+  placeholder-name-format:
+    - 1
+    -
+      allow-leading-underscore: false
+      convention: hyphenatedlowercase
+  property-sort-order:
+    - 1
+    -
+      order:
+        - -webkit-rtl-ordering
+        - direction
+        - unicode-bidi
+        - writing-mode
+        - text-orientation
+        - glyph-orientation-vertical
+        - text-combine-upright
+        - text-transform
+        - white-space
+        - tab-size
+        - line-break
+        - word-break
+        - hyphens
+        - word-wrap
+        - overflow-wrap
+        - text-align
+        - text-align-last
+        - text-justify
+        - word-spacing
+        - letter-spacing
+        - text-indent
+        - hanging-punctuation
+        - -webkit-nbsp-mode
+        - text-decoration
+        - text-decoration-line
+        - text-decoration-style
+        - text-decoration-color
+        - text-decoration-skip
+        - text-underline-position
+        - text-emphasis
+        - text-emphasis-style
+        - text-emphasis-color
+        - text-emphasis-position
+        - text-shadow
+        - -webkit-text-fill-color
+        - -webkit-text-stroke
+        - -webkit-text-stroke-width
+        - -webkit-text-stroke-color
+        - -webkit-text-security
+        - font
+        - font-style
+        - font-variant
+        - font-weight
+        - font-stretch
+        - font-size
+        - line-height
+        - font-family
+        - src
+        - unicode-range
+        - -webkit-text-size-adjust
+        - font-size-adjust
+        - font-synthesis
+        - font-kerning
+        - font-variant-ligatures
+        - font-variant-position
+        - font-variant-caps
+        - font-variant-numeric
+        - font-variant-alternates
+        - font-variant-east-asian
+        - font-feature-settings
+        - font-language-override
+        - list-style
+        - list-style-type
+        - list-style-position
+        - list-style-image
+        - marker-side
+        - counter-set
+        - counter-increment
+        - caption-side
+        - table-layout
+        - border-collapse
+        - -webkit-border-horizontal-spacing
+        - -webkit-border-vertical-spacing
+        - border-spacing
+        - empty-cells
+        - move-to
+        - quotes
+        - counter-increment
+        - counter-reset
+        - page-policy
+        - content
+        - crop
+        - box-sizing
+        - outline
+        - outline-color
+        - outline-style
+        - outline-width
+        - outline-offset
+        - resize
+        - text-overflow
+        - cursor
+        - caret-color
+        - nav-up
+        - nav-right
+        - nav-down
+        - nav-left
+        - -webkit-appearance
+        - -webkit-user-drag
+        - -webkit-user-modify
+        - -webkit-user-select
+        - -moz-user-select
+        - -ms-user-select
+        - pointer-events
+        - -webkit-dashboard-region
+        - -apple-dashboard-region
+        - -webkit-touch-callout
+        - position
+        - top
+        - right
+        - bottom
+        - left
+        - offset-before
+        - offset-end
+        - offset-after
+        - offset-start
+        - z-index
+        - display
+        - -webkit-margin-collapse
+        - -webkit-margin-top-collapse
+        - -webkit-margin-bottom-collapse
+        - -webkit-margin-start
+        - margin
+        - margin-top
+        - margin-right
+        - margin-bottom
+        - margin-left
+        - -webkit-padding-start
+        - padding
+        - padding-top
+        - padding-right
+        - padding-bottom
+        - padding-left
+        - width
+        - min-width
+        - max-width
+        - height
+        - min-height
+        - max-height
+        - float
+        - clear
+        - overflow
+        - overflow-x
+        - overflow-y
+        - -webkit-overflow-scrolling
+        - overflow-style
+        - marquee-style
+        - marquee-loop
+        - marquee-direction
+        - marquee-speed
+        - visibility
+        - rotation
+        - rotation-point
+        - flex-flow
+        - flex-direction
+        - flex-wrap
+        - order
+        - flex
+        - flex-grow
+        - flex-shrink
+        - flex-basis
+        - justify-content
+        - align-items
+        - align-self
+        - align-content
+        - columns
+        - column-width
+        - column-count
+        - column-gap
+        - column-rule
+        - column-rule-width
+        - column-rule-style
+        - column-rule-color
+        - break-before
+        - break-after
+        - break-inside
+        - column-span
+        - column-fill
+        - grid
+        - grid-template
+        - grid-template-columns
+        - grid-template-rows
+        - grid-template-areas
+        - grid-auto-flow
+        - grid-auto-columns
+        - grid-auto-rows
+        - grid-column
+        - grid-row
+        - grid-area
+        - grid-row-start
+        - grid-column-start
+        - grid-row-end
+        - grid-column-end
+        - grid-gap
+        - grid-column-gap
+        - grid-row-gap
+        - orphans
+        - widows
+        - box-decoration-break
+        - background
+        - background-image
+        - background-position
+        - background-size
+        - background-repeat
+        - background-attachment
+        - background-origin
+        - background-clip
+        - background-color
+        - border
+        - border-width
+        - border-style
+        - border-color
+        - border-top
+        - border-top-width
+        - border-top-style
+        - border-top-color
+        - border-right
+        - border-right-width
+        - border-right-style
+        - border-right-color
+        - border-bottom
+        - border-bottom-width
+        - border-bottom-style
+        - border-bottom-color
+        - border-left
+        - border-left-width
+        - border-left-style
+        - border-left-color
+        - border-radius
+        - border-top-left-radius
+        - border-top-right-radius
+        - border-bottom-right-radius
+        - border-bottom-left-radius
+        - border-image
+        - border-image-source
+        - border-image-slice
+        - border-image-width
+        - border-image-outset
+        - border-image-repeat
+        - box-shadow
+        - color
+        - opacity
+        - -webkit-tap-highlight-color
+        - object-fit
+        - object-position
+        - image-resolution
+        - image-orientation
+        - clip-path
+        - mask
+        - mask-image
+        - mask-mode
+        - mask-repeat
+        - mask-position
+        - mask-clip
+        - mask-origin
+        - mask-size
+        - mask-composite
+        - mask-border
+        - mask-border-source
+        - mask-border-slice
+        - mask-border-width
+        - mask-border-outset
+        - mask-border-repeat
+        - mask-border-mode
+        - mask-type
+        - clip
+        - filter
+        - transition
+        - transition-property
+        - transition-duration
+        - transition-timing-function
+        - transition-delay
+        - transform
+        - transform-origin
+        - transform-style
+        - perspective
+        - perspective-origin
+        - backface-visibility
+        - animation
+        - animation-name
+        - animation-duration
+        - animation-timing-function
+        - animation-delay
+        - animation-iteration-count
+        - animation-direction
+        - animation-fill-mode
+        - animation-play-state
+        - voice-volume
+        - voice-balance
+        - speak
+        - speak-as
+        - pause
+        - pause-before
+        - pause-after
+        - rest
+        - rest-before
+        - rest-after
+        - cue
+        - cue-before
+        - cue-after
+        - voice-family
+        - voice-rate
+        - voice-pitch
+        - voice-range
+        - voice-stress
+        - voice-duration
+        - size
+        - page
+        - zoom
+        - min-zoom
+        - max-zoom
+        - user-zoom
+        - orientation
+  property-units: 1
+  quotes:
+    - 1
+    -
+      style: double
+  shorthand-values: 1
+  single-line-per-selector: 0
+  space-after-bang: 1
+  space-after-colon: 1
+  space-after-comma: 1
+  space-around-operator: 1
+  space-before-bang: 1
+  space-before-brace: 1
+  space-before-colon: 1
+  space-between-parens: 1
+  trailing-semicolon: 0
+  url-quotes: 1
+  variable-for-property: 0
+  variable-name-format:
+    - 1
+    -
+      allow-leading-underscore: false
+      convention: hyphenatedlowercase
+  zero-unit: 1
+#+end_src
+#+HTML: </details>
+
+** gatsby-node.js
+
+#+begin_src js :tangle gatsby-node.js
+/* eslint-env commonjs */
+
+exports.modifyWebpackConfig = ({ config, _stage }) => {
+  config.merge ({
+    "devtool": false,
+    "output": {
+      "hashDigestLength": 6
+    }
+  })
+  return config
+}
+#+end_src
+
+** gatsby-config.js
+
+#+begin_src js :tangle gatsby-config.js
+/* eslint-env commonjs */
+
+const autoprefixer = require ("autoprefixer")
+const browsers = require ("browserslist") ([">1% in my stats"], {
+  "stats": ".caniuse.json"
+})
+
+module.exports = {
+  "plugins": [
+    {
+      "options": {
+        "name": "posts",
+        "path": `${__dirname}/src/posts/`,
+      },
+      "resolve": "gatsby-source-filesystem"
+    },
+    "gatsby-transformer-orga",
+    {
+      "options": {
+        "postCssPlugins": [
+          autoprefixer ({ "browsers": browsers })
+        ]
+      },
+      "resolve": "gatsby-plugin-postcss-sass"
+    },
+    "gatsby-plugin-react-helmet"
+  ]
+}
+#+end_src
+
+** netlify.toml
+
+#+begin_src ini :tangle netlify.toml
+[build]
+publish = "public"
+#+end_src
+
+** package.json
+
+#+HTML: <details>
+#+begin_src json :tangle package.json
+{
+  "author": "Peter T Bosse II <ptb@ioutime.com> (http://ptb2.me/)",
+  "babel": {
+    "plugins": [
+      "transform-react-pug"
+    ],
+    "presets": [
+      "env"
+    ]
+  },
+  "devDependencies": {
+    "animated": "latest",
+    "babel-eslint": "latest",
+    "babel-plugin-transform-react-pug": "latest",
+    "browserslist": "latest",
+    "caniuse-db": "latest",
+    "chokidar-cli": "latest",
+    "enzyme": "latest",
+    "eslint": "latest",
+    "eslint-config-ptb": "latest",
+    "eslint-plugin-better": "latest",
+    "eslint-plugin-fp": "latest",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-json": "latest",
+    "eslint-plugin-jsx-a11y": "latest",
+    "eslint-plugin-promise": "latest",
+    "eslint-plugin-react": "latest",
+    "eslint-plugin-react-pug": "latest",
+    "eslint-plugin-standard": "latest",
+    "gatsby": "latest",
+    "gatsby-image": "latest",
+    "gatsby-plugin-postcss-sass": "latest",
+    "gatsby-plugin-react-helmet": "latest",
+    "gatsby-plugin-sitemap": "latest",
+    "gatsby-source-filesystem": "latest",
+    "gatsby-transformer-orga": "latest",
+    "jest": "latest",
+    "jstransformer-sass": "latest",
+    "node-http-server": "latest",
+    "npm-run-all": "latest",
+    "prettier": "latest",
+    "prettier-eslint-cli": "latest",
+    "pug": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-helmet": "latest",
+    "react-redux": "latest",
+    "react-transition-group": "latest",
+    "redux": "latest",
+    "sass-lint": "latest"
+  },
+  "eslintConfig": {
+    "extends": "ptb",
+    "globals": {
+      "graphql": true,
+      "pug": true
+    },
+    "rules": {
+      "better/explicit-return": "off",
+      "better/no-ifs": "off",
+      "better/no-instanceofs": "off",
+      "better/no-new": "off",
+      "fp/no-arguments": "off",
+      "fp/no-class": "off",
+      "fp/no-delete": "off",
+      "fp/no-events": "off",
+      "fp/no-get-set": "off",
+      "fp/no-let": "off",
+      "fp/no-loops": "off",
+      "fp/no-mutating-assign": "off",
+      "fp/no-mutating-methods": "off",
+      "fp/no-mutation": "off",
+      "fp/no-nil": "off",
+      "fp/no-proxy": "off",
+      "fp/no-rest-parameters": "off",
+      "fp/no-this": "off",
+      "fp/no-throw": "off",
+      "fp/no-unused-expression": "off",
+      "fp/no-valueof-field": "off",
+      "import/export": "off",
+      "import/no-amd": "off",
+      "import/no-commonjs": "off"
+    }
+  },
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "rm -rf .cache node_modules package-lock.json public yarn-error.log yarn.lock",
+    "develop": "gatsby develop",
+    "http:open": "open 'http://localhost:8080/'",
+    "http:serve": "node-http-server root=public",
+    "js:lint": "eslint --fix",
+    "js:tidy": "prettier-eslint --write",
+    "js:watch": "chokidar '**/*.js' -i '/node_modules|public/' -c 'npm run js:tidy {path}'",
+    "postinstall": "patch -p0 < patch.diff",
+    "sass:lint": "sass-lint -c .sass-lint.yml -v",
+    "sass:watch": "chokidar 'src/**/*.sass' -c 'npm run sass:lint {path}'",
+    "serve": "run-p 'http:serve' 'http:open'",
+    "start": "run-p 'develop' 'js:watch' 'sass:watch'"
+  }
+}
+#+end_src
+#+HTML: </details>
+
+** patch.diff
+
+#+HTML: <details>
+#+begin_src diff :tangle patch.diff
+--- node_modules/gatsby/cache-dir/app.js
++++ node_modules/gatsby/cache-dir/app.js
+@@ -32,7 +32,7 @@
+     })
+   }
+
+-  const rootElement = document.getElementById(`___gatsby`)
++  const rootElement = document.getElementById(`app`)
+
+   let Root = require(`./root`)
+   if (Root.default) {
+--- node_modules/gatsby/cache-dir/default-html.js
++++ node_modules/gatsby/cache-dir/default-html.js
+@@ -3,7 +3,7 @@
+ let stylesStr
+ if (process.env.NODE_ENV === `production`) {
+   try {
+-    stylesStr = require(`!raw-loader!../public/styles.css`)
++    stylesStr = require(`!raw-loader!../public/css/styles.css`)
+   } catch (e) {
+     console.log(e)
+   }
+@@ -36,7 +36,7 @@
+           {this.props.preBodyComponents}
+           <div
+             key={`body`}
+-            id="___gatsby"
++            id="app"
+             dangerouslySetInnerHTML={{ __html: this.props.body }}
+           />
+           {this.props.postBodyComponents}
+--- node_modules/gatsby/cache-dir/develop-static-entry.js
++++ node_modules/gatsby/cache-dir/develop-static-entry.js
+@@ -19,7 +19,7 @@
+ module.exports = (locals, callback) => {
+   // const apiRunner = require(`${directory}/.cache/api-runner-ssr`)
+   let headComponents = []
+-  let htmlAttributes = {}
++  let htmlAttributes = {"xmlns": "http://www.w3.org/1999/xhtml"}
+   let bodyAttributes = {}
+   let preBodyComponents = []
+   let postBodyComponents = []
+@@ -67,7 +67,7 @@
+     ]),
+     preBodyComponents,
+     postBodyComponents: postBodyComponents.concat([
+-      <script key={`commons`} src="/commons.js" />,
++      <script key={`commons`} src="/js/b-commons.js" />,
+     ]),
+   })
+   htmlStr = renderToStaticMarkup(htmlElement)
+--- node_modules/gatsby/cache-dir/loader.js
++++ node_modules/gatsby/cache-dir/loader.js
+@@ -73,9 +73,9 @@
+   } else {
+     // Find resource
+     let resourceFunction
+-    if (resourceName.slice(0, 12) === `component---`) {
++    if (resourceName.slice(0, 7) === `js/c/c-`) {
+       resourceFunction = asyncRequires.components[resourceName]
+-    } else if (resourceName.slice(0, 9) === `layout---`) {
++    } else if (resourceName.slice(0, 7) === `js/l/l-`) {
+       resourceFunction = asyncRequires.layouts[resourceName]
+     } else {
+       resourceFunction = asyncRequires.json[resourceName]
+--- node_modules/gatsby/cache-dir/production-app.js
++++ node_modules/gatsby/cache-dir/production-app.js
+@@ -185,7 +185,7 @@
+       ReactDOM.render(
+         <NewRoot />,
+         typeof window !== `undefined`
+-          ? document.getElementById(`___gatsby`)
++          ? document.getElementById(`app`)
+           : void 0,
+         () => {
+           apiRunner(`onInitialClientRender`)
+--- node_modules/gatsby/cache-dir/root.js
++++ node_modules/gatsby/cache-dir/root.js
+@@ -14,7 +14,7 @@
+ // Report runtime errors
+ ErrorOverlay.startReportingRuntimeErrors({
+   onError: () => {},
+-  filename: `/commons.js`,
++  filename: `/js/b-commons.js`,
+ })
+ ErrorOverlay.setEditorHandler(errorLocation =>
+   window.fetch(
+--- node_modules/gatsby/cache-dir/static-entry.js
++++ node_modules/gatsby/cache-dir/static-entry.js
+@@ -26,7 +26,7 @@
+
+ const pathChunkName = path => {
+   const name = path === `/` ? `index` : kebabCase(path)
+-  return `path---${name}`
++  return `js/p/p-${name}`
+ }
+
+ const getPage = path => pages.find(page => page.path === path)
+@@ -47,7 +47,7 @@
+
+   let bodyHtml = ``
+   let headComponents = []
+-  let htmlAttributes = {}
++  let htmlAttributes = {"xmlns": "http://www.w3.org/1999/xhtml"}
+   let bodyAttributes = {}
+   let preBodyComponents = []
+   let postBodyComponents = []
+@@ -147,8 +147,8 @@
+   // Create paths to scripts
+   const page = pages.find(page => page.path === locals.path)
+   const scripts = [
+-    `commons`,
+-    `app`,
++    `js/b-commons`,
++    `js/a-appmain`,
+     pathChunkName(locals.path),
+     page.componentChunkName,
+     page.layoutComponentChunkName,
+--- node_modules/gatsby/dist/commands/build-css.js
++++ node_modules/gatsby/dist/commands/build-css.js
+@@ -35,14 +35,14 @@
+
+                 // We don't want any javascript produced by this step in the process.
+                 try {
+-                  fs.unlinkSync(`${directory}/public/bundle-for-css.js`);
++                  fs.unlinkSync(`${directory}/public/css/bundle-for-css.js`);
+                 } catch (e) {}
+                 // ignore.
+
+
+                 // Ensure there's a styles.css file in public so tools that expect it
+                 // can find it.
+-                fs.ensureFile(`${directory}/public/styles.css`, function (err) {
++                fs.ensureFile(`${directory}/public/css/styles.css`, function (err) {
+                   resolve(err);
+                 });
+               });
+--- node_modules/gatsby/dist/redux/actions.js
++++ node_modules/gatsby/dist/redux/actions.js
+@@ -260,7 +260,7 @@
+   var id = layout.id || path.parse(layout.component).name;
+   // Add a "machine" id as a universal ID to differentiate layout from
+   // page components.
+-  var machineId = `layout---${id}`;
++  var machineId = `js/l/l-${id}`;
+   var componentWrapperPath = joinPath(store.getState().program.directory, `.cache`, `layouts`, `${id}.js`);
+
+   var internalLayout = {
+--- node_modules/gatsby/dist/utils/js-chunk-names.js
++++ node_modules/gatsby/dist/utils/js-chunk-names.js
+@@ -1,5 +1,11 @@
+ "use strict";
+
++var crypto = require("crypto");
++
++var shahex = function shahex(name) {
++  return crypto.createHash("sha").update(name).digest("hex").slice(0,8);
++}
++
+ var _lodash = require("lodash");
+
+ var _lodash2 = _interopRequireDefault(_lodash);
+@@ -13,7 +19,7 @@
+
+ var generatePathChunkName = function generatePathChunkName(path) {
+   var name = path === `/` ? `index` : _lodash2.default.kebabCase(path);
+-  return `path---${name}`;
++  return `js/p/p-${shahex(name)}`;
+ };
+
+ var generateComponentChunkName = function generateComponentChunkName(componentPath) {
+@@ -23,7 +29,7 @@
+     directory = program.directory;
+   }
+   var name = path.relative(directory, componentPath);
+-  return `component---${_lodash2.default.kebabCase(name)}`;
++  return `js/c/c-${shahex(_lodash2.default.kebabCase(name))}`;
+ };
+
+ exports.generatePathChunkName = generatePathChunkName;
+--- node_modules/gatsby/dist/utils/webpack.config.js
++++ node_modules/gatsby/dist/utils/webpack.config.js
+@@ -72,12 +72,12 @@
+ var HashedChunkIdsPlugin = require(`./hashed-chunk-ids-plugin`);
+
+ // Use separate extract-text-webpack-plugin instances for each stage per the docs
+-var extractDevelopHtml = new _extractTextWebpackPlugin2.default(`build-html-styles.css`);
+-var extractBuildHtml = new _extractTextWebpackPlugin2.default(`build-html-styles.css`, {
++var extractDevelopHtml = new _extractTextWebpackPlugin2.default(`css/styles-html.css`);
++var extractBuildHtml = new _extractTextWebpackPlugin2.default(`css/styles-html.css`, {
+   allChunks: true
+ });
+ var extractBuildCss = new _extractTextWebpackPlugin2.default(`styles.css`, { allChunks: true });
+-var extractBuildJavascript = new _extractTextWebpackPlugin2.default(`build-js-styles.css`, {
++var extractBuildJavascript = new _extractTextWebpackPlugin2.default(`css/styles-js.css`, {
+   allChunks: true
+ });
+
+@@ -341,8 +341,8 @@
+                     // Extract "commons" chunk from the app entry and all
+                     // page components.
+                     new _webpack2.default.optimize.CommonsChunkPlugin({
+-                      name: `commons`,
+-                      chunks: [`app`].concat(components),
++                      name: `js/b-commons`,
++                      chunks: [`js/a-appmain`].concat(components),
+                       // The more page components there are, the higher we raise the bar
+                       // for merging in page-specific JS libs into the commons chunk. The
+                       // two principles here is a) keep the TTI (time to interaction) as
+@@ -420,7 +420,7 @@
+               switch (stage) {
+                 case `develop`:
+                   return {
+-                    commons: [require.resolve(`react-hot-loader/patch`), `${require.resolve(`webpack-hot-middleware/client`)}?path=http://${program.host}:${webpackPort}/__webpack_hmr&reload=true&overlay=false`, directoryPath(`.cache/app`)]
++                    "js/b-commons": [require.resolve(`react-hot-loader/patch`), `${require.resolve(`webpack-hot-middleware/client`)}?path=http://${program.host}:${webpackPort}/__webpack_hmr&reload=true&overlay=false`, directoryPath(`.cache/app`)]
+                   };
+                 case `develop-html`:
+                   return {
+@@ -436,7 +436,7 @@
+                   };
+                 case `build-javascript`:
+                   return {
+-                    app: directoryPath(`.cache/production-app`)
++                    "js/a-appmain": directoryPath(`.cache/production-app`)
+                   };
+                 default:
+                   throw new Error(`The state requested ${stage} doesn't exist.`);
+@@ -458,9 +458,9 @@
+                   // Webpack will always generate a resultant javascript file.
+                   // But we don't want it for this step. Deleted by build-css.js.
+                   return {
+-                    path: directoryPath(`public`),
++                    path: directoryPath(`public/css`),
+                     filename: `bundle-for-css.js`,
+-                    publicPath: program.prefixPaths ? `${store.getState().config.pathPrefix}/` : `/`
++                    publicPath: program.prefixPaths ? `${store.getState().config.pathPrefix}/` : `/css/`
+                   };
+                 case `build-html`:
+                 case `develop-html`:
+--- node_modules/gatsby/package.json
++++ node_modules/gatsby/package.json
+@@ -18,7 +18,6 @@
+     "babel-plugin-transform-object-assign": "^6.8.0",
+     "babel-polyfill": "^6.23.0",
+     "babel-preset-env": "^1.6.0",
+-    "babel-preset-es2015": "^6.24.1",
+     "babel-preset-react": "^6.24.1",
+     "babel-preset-stage-0": "^6.24.1",
+     "babel-runtime": "^6.26.0",
+--- node_modules/gatsby-1-config-css-modules/index.js
++++ node_modules/gatsby-1-config-css-modules/index.js
+@@ -1,6 +1,6 @@
+ "use strict";
+
+-var LOCAL_IDENT_NAME = `[path]---[name]---[local]---[hash:base64:5]`;
++var LOCAL_IDENT_NAME = `[sha256:hash:base52:6]`;
+ exports.LOCAL_IDENT_NAME = LOCAL_IDENT_NAME;
+
+ exports.cssModulesConfig = function (stage) {
+--- node_modules/gatsby-module-loader/patch.js
++++ node_modules/gatsby-module-loader/patch.js
+@@ -67,7 +67,7 @@
+   function onError(callback) {
+     var script = head.lastChild;
+
+-    if (script.tagName !== "SCRIPT") {
++    if (script.tagName.toUpperCase() !== "SCRIPT") {
+       if (typeof console !== "undefined" && console.warn) {
+         console.warn("Script is not a script", script);
+       }
+--- node_modules/gatsby-plugin-postcss-sass/gatsby-node.js
++++ node_modules/gatsby-plugin-postcss-sass/gatsby-node.js
+@@ -18,8 +18,8 @@
+     });
+   }
+
+-  var sassFiles = /\.s[ac]ss$/;
+-  var sassModulesFiles = /\.module\.s[ac]ss$/;
++  var sassFiles = /\.scss$/;
++  var sassModulesFiles = /\.sass$/;
+   var sassLoader = `sass?${JSON.stringify(options)}`;
+
+   switch (stage) {
+--- node_modules/mitt/dist/mitt.js
++++ node_modules/mitt/dist/mitt.js
+@@ -2 +1,0 @@
+-//# sourceMappingURL=mitt.js.map
+\ No newline at end of file
+#+end_src
+#+HTML: </details>
+
+** src/html.js
+
+#+HTML: <details>
+#+begin_src js :tangle src/html.js
+/* eslint-env commonjs */
+
+import { createElement as h } from "react"
+const css = require ("!raw-loader!../public/css/styles.css")
+
+export default (props) =>
+  h (
+    "html",
+    { "lang": "en", "xmlns": "http://www.w3.org/1999/xhtml" },
+    h (
+      "head",
+      null,
+      h ("meta", { "charSet": "utf-8" }),
+      h ("meta", { "content": "ie=edge", "httpEquiv": "x-ua-compatible" }),
+      h ("meta", {
+        "content": "initial-scale=1, shrink-to-fit=no, width=device-width",
+        "name": "viewport"
+      }),
+      h ("style", { "dangerouslySetInnerHTML": { "__html": css } }),
+      props.headComponents
+    ),
+    h (
+      "body",
+      props.bodyAttributes,
+      props.preBodyComponents,
+      h ("div", {
+        "dangerouslySetInnerHTML": { "__html": props.body },
+        "data-reactroot": "",
+        "id": "app",
+        "key": "body"
+      }),
+      props.postBodyComponents
+    )
+  )
+#+end_src
+#+HTML: </details>
+
+** src/layouts/index.js
+
+#+begin_src js :tangle src/layouts/index.js
+import { Fragment, createElement as h } from "react"
+
+export default ({ children }) => h (Fragment, null, children ())
+#+end_src
+
+** src/pages/index.js
+
+#+begin_src js :tangle src/pages/index.js
+import { default as a } from "../parts/a.js"
+import css from "./index.sass"
+import { createElement as h } from "react"
+import withRouter from "react-router-dom/withRouter"
+
+export default (_) => h (withRouter (a, { "className": `${css.a}` }, _))
+#+end_src
+
+** src/pages/index.sass
+
+#+begin_src sass :tangle src/pages/index.sass
+.a
+  background-color: #fcc
+  display: flex
+#+end_src
+
+** src/parts/a.js
+
+#+begin_src js :tangle src/parts/a.js
+/* eslint no-unused-vars: off */
+
+import { Helmet } from "react-helmet"
+import React from "react"
+import css from "./a.sass"
+
+export default (_) =>
+  pug `
+    Helmet
+      title My Title
+      style
+        :sass(outputStyle="compressed")
+          body
+            margin: 0
+    div(className=css.a) Hello, world!
+    div ${JSON.stringify(_)}
+    style
+      :sass(outputStyle="compressed")
+        html
+          background-color: #cfc
+  `
+#+end_src
+
+** src/parts/a.sass
+
+#+begin_src sass :tangle src/parts/a.sass
+.a
+  background-color: #ffc
+#+end_src
+
+** src/parts/b.js
+
+#+begin_src js
+import React, { Component } from 'react';
+
+import Animated from 'animated/lib/targets/react-dom';
+import Easing from 'animated/lib/Easing';
+
+export default class App extends Component {
+  animatedValue = new Animated.Value(0)
+  animate = () => {
+    this.animatedValue.setValue(0)
+    Animated.timing(
+      this.animatedValue,
+      {
+        toValue: 1,
+        duration: 1000,
+        easing: Easing.elastic(1)
+      }
+    ).start();
+  }
+  render() {
+    const marginLeft = this.animatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [-120, 0],
+    })
+    return (
+      <div className="App">
+        <div className="container">
+          <div style={styles.button} onClick={this.animate}>Animate</div>
+          <Animated.div
+            style={
+              Object.assign(
+                {},
+                styles.box,
+                { opacity: this.animatedValue, marginLeft })}>
+                <p>Thanks for your submission!</p>
+            </Animated.div>
+            </div>
+      </div>
+    );
+  }
+}
+
+const styles = {
+  button: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ffc107',
+    cursor: 'pointer',
+    marginBottom: 20,
+    width: 180,
+    height: 40,
+    border: 'none',
+    outline: 'none',
+  },
+  box: {
+    opacity: 0,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 100,
+    width: 400,
+    borderRadius: 10,
+    boxShadow: '1px 1px 13px rgba(0, 0, 0, .35)',
+  }
+}
+#+end_src
+
+** src/parts/c.js
+
+#+begin_src js
+import a from "./feature-detects/css/cssgrid.js"
+import b from "./feature-detects/css/flexbox.js"
+import x from "./src/testRunner.js"
+import y from "./src/setClasses.js"
+import z from "./src/classes.js"
+
+export default () => {
+  a ()
+  b ()
+  x ()
+  y (z)
+}
+#+end_src
+
+** src/posts/.keep
+
+#+begin_src gitignore :tangle src/posts/.keep
+#+end_src
+
+** static/.keep
+
+#+begin_src gitignore :tangle static/.keep
+#+end_src
+
+** example.html
+
+#+HTML: <details>
+#+begin_src html
+<!DOCTYPE html>
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>_</title>
+    <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/react-router-dom/umd/react-router-dom.min.js"></script>
+    <script src="https://unpkg.com/react-transition-group/dist/react-transition-group.min.js"></script>
+    <script type="module">
+      import a from "./feature-detects/css/cssgrid.js"
+      import b from "./feature-detects/css/flexbox.js"
+      import x from "./src/testRunner.js"
+      import y from "./src/setClasses.js"
+      import z from "./src/classes.js"
+
+      a ()
+      b ()
+      x ()
+      y (z)
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      /*<![CDATA[*/
+        const h = React.createElement
+        ReactDOM.render (
+          h ("div", null, "Hello world!"),
+          document.getElementById ("app")
+        )
+      /*]]>*/
+    </script>
+  </body>
+</html>
+#+end_src
+#+HTML: </details>
+
+** animated
+
+react-motion
+
+const animated = {
+  Value,
+  ValueXY,
+  add,
+  createAnimatedComponent,
+  decay,
+  delay,
+  div,
+  event,
+  img,
+  inject: {
+    ApplyAnimatedValues,
+    CancelAnimationFrame,
+    FlattenStyle,
+    InteractionManager,
+    RequestAnimationFrame
+  }
+  isAnimated,
+  modulo,
+  multiply,
+  parallel,
+  sequence,
+  span,
+  spring,
+  stagger,
+  template,
+  timing
+}
