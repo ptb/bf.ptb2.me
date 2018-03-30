@@ -10,9 +10,9 @@ import { driver } from "styletron-standard"
 export default (_) => pug `
   div(class=css ({ "background-color": "#eee", "display": "flex", "flex-direction": "column", "min-height": "100vh" }))
     Helmet(bodyAttributes=({ "class": css (body) }))
-    div(class=css ({ "background-color": "rgba(255,204,204,.8)" })) Head
-    div(class=css ({ "background-color": "rgba(204,255,204,.8)" })) Body
-    div(class=css ({ "background-color": "rgba(204,204,255,.8)" })) Foot
+    div(class=css ({ "background-color": "rgba(255,204,204,.8)", "flex": 1 })) Head
+    div(class=css ({ "background-color": "rgba(204,255,204,.8)", "flex": 2 })) Body
+    div(class=css ({ "background-color": "rgba(204,204,255,.8)", "flex": 1 })) Foot
 `
 
     // div#head(class=css ({ "background-color": "rgba(255,204,204,.8)" }))
