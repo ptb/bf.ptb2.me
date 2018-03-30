@@ -10,7 +10,7 @@ export default (_) => pug `
     div#head
       Head
     div#body
-      div(class=css ({ "position": "relative" })
+      div(class=css ({ "position": "relative" }))
         = _.children ()
     div#foot Foot
 `
