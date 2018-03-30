@@ -1,36 +1,36 @@
-import React from "react"
 import { css } from "@ptb/gatsby-plugin-styletron/style"
+import React from "react"
 
 const Home = (a) => pug `
   h1(class=css ({ "color": "#fff" })) Home
 `
 
 const Rates = (a) => pug `
-  div Rates
+  h1(class=css ({ "color": "#fff" })) Rates
 `
 
 const Events = (a) => pug `
-  div Events
+  h1(class=css ({ "color": "#fff" })) Events
 `
 
 const Gallery = (a) => pug `
-  div Gallery
+  h1(class=css ({ "color": "#fff" })) Gallery
 `
 
 const Djs = (a) => pug `
-  div The DJs
+  h1(class=css ({ "color": "#fff" })) The DJs
 `
 
 const Music = (a) => pug `
-  div Music
+  h1(class=css ({ "color": "#fff" })) Music
 `
 
 const Equipment = (a) => pug `
-  div Equipment
+  h1(class=css ({ "color": "#fff" })) Equipment
 `
 
 const Press = (a) => pug `
-  div Press
+  h1(class=css ({ "color": "#fff" })) Press
 `
 
 export {
