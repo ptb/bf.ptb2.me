@@ -9,7 +9,7 @@ export default (_) => pug `
     Helmet(bodyAttributes=({ "class": css (body) }))
     div#head(class=css ({ "background-color": "rgba(255,204,204,.8)" })) Head
     div#body(class=css ({ "background-color": "rgba(204,255,204,.8)" })) Body
-    div#foot(class=css ({ "background-color": "rgba(204,204,255,.8)" })) Body
+    div#foot(class=css ({ "background-color": "rgba(204,204,255,.8)" })) Foot
 `
 
     // div#head(class=css ({ "position": "relative" }))
