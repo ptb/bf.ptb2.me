@@ -8,7 +8,7 @@ import instance from "@ptb/gatsby-plugin-styletron/instance"
 import { driver } from "styletron-standard"
 
 export default (_) => pug `
-  div(class=css ({ "display": "flex", "flex-direction": "column", "min-height": "100%" }))
+  div(class=css ({ "display": "flex", "flex-direction": "column", "min-height": "100vh" }))
     Helmet(bodyAttributes=({ "class": css (body) }))
     div(class=css ({ "background-color": "rgba(255,204,204,.8)" })) Head
     div(class=css ({ "background-color": "rgba(204,255,204,.8)" })) Body
