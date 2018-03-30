@@ -8,9 +8,8 @@ import instance from "@ptb/gatsby-plugin-styletron/instance"
 import { driver } from "styletron-standard"
 
 const html = {
-  "background-color": "#333",
   "background-image": "url('/img/background.jpg')",
-  "background-position": "center 172px",
+  "background-position": "50% 0",
   "background-repeat": "no-repeat"
 }
 
