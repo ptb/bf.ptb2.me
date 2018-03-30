@@ -17,6 +17,10 @@ export default (_) => pug `
         span :
         Link(title="info@bigfundj.com" to="mailto:info@bigfundj.com") info@bigfundj.com
         span .
+      nav
+        ul
+          li
+            Link.home(title="Home" to="/") Home
     div(class=css (main)) Main
     div(class=css (foot)) Foot
 `
