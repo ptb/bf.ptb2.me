@@ -11,7 +11,7 @@ const html = {
   "background-color": "#333",
   "background-image": "url('/img/background.jpg')",
   "background-position": "center",
-  "background-size": "cover",
+  "background-size": "contain",
   "background-repeat": "no-repeat"
 }
 
