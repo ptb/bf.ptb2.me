@@ -9,7 +9,7 @@ import { driver } from "styletron-standard"
 import { body, html, main } from "./styles.json"
 
 export default (_) => pug `
-  div(class=css ({ "background-color": "#eee", "display": "flex", "flex-direction": "column", "min-height": "100vh" }))
+  div(class=css ({ "display": "flex", "flex-direction": "column", "min-height": "100vh" }))
     Helmet(htmlAttributes=({ "class": css (html) }))
     Helmet(bodyAttributes=({ "class": css (body) }))
     div(class=css ({ "background-color": "rgba(255,204,204,.8)" })) Head
