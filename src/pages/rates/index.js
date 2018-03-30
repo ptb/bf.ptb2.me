@@ -27,5 +27,5 @@ export default () => pug `
     Link(to=({ "pathname": "/", "state": { "anim": "slide.back" } })) To Index
     Link(to=({ "pathname": "/" })) To Index (without transition)
     Link(to="/") To Index (without transition 2)
-    div(class=css ({ "color": "#000" })) Hi
+    div(class=css ({ "color": "#000" })) Rates
 `

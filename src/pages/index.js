@@ -19,7 +19,7 @@ export default () => pug `
     Link(to=({ "pathname": "/rates/", "state": { "anim": "slide.fore" } })) To Page 2
     Link(to=({ "pathname": "/rates/" })) To Page 2 (without transition)
     Link(to="/rates/") To Page 2 (without transition 2)
-    div(class=css ({ "color": "#000" })) Hi
+    div(class=css ({ "color": "#000" })) Home
 `
 
 // export default () => pug `
