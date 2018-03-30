@@ -12,8 +12,8 @@ export default (_) => pug `
     div#body(class=css ({ "position": "relative" }))
       div
         = _.children ()
-    div#foot
-      div(class=css ({ "position": "relative" })) Foot
+    div#foot(class=css ({ "position": "relative" }))
+      div Foot
 `
 
 // import { createElement as h } from "react"
