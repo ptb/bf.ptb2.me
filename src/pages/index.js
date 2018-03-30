@@ -16,9 +16,9 @@ import { View } from "@ptb/animated-transition"
 
 export default () => pug `
   div(style=({ "background-color": "rgba(255,204,204,0.8)" }))
-    Link(to=({ "pathname": "/page-2/", "state": { "anim": "slide.fore" } })) To Page 2
-    Link(to=({ "pathname": "/page-2/" })) To Page 2 (without transition)
-    Link(to="/page-2/") To Page 2 (without transition 2)
+    Link(to=({ "pathname": "/rates/", "state": { "anim": "slide.fore" } })) To Page 2
+    Link(to=({ "pathname": "/rates/" })) To Page 2 (without transition)
+    Link(to="/rates/") To Page 2 (without transition 2)
     div(class=css ({ "color": "#000" })) Hi
 `
 
