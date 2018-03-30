@@ -37,6 +37,6 @@ export default (a) => pug `
       Transition(...a)
         Switch
           Route(exact path="/" component=Home)
-        = a.children ()
+      = a.children ()
     div(class=css (foot)) Foot
 `
