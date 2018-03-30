@@ -1,0 +1,6 @@
+{
+  "plugins": [
+    "@ptb/gatsby-plugin-styletron",
+    "gatsby-plugin-react-helmet"
+  ]
+}
