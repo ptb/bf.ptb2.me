@@ -11,7 +11,7 @@ export default (_) => pug `
   div(class=css ({ "background-color": "#eee", "display": "flex", "flex-direction": "column", "min-height": "100vh", "max-width": "975px", "margin": "auto" }))
     Helmet(bodyAttributes=({ "class": css (body) }))
     div(class=css ({ "background-color": "rgba(255,204,204,.8)", "flex": 0 })) Head
-    div(class=css ({ "background-color": "rgba(204,255,204,.8)", "flex": 2 })) Body
+    div(class=css ({ "background-color": "rgba(204,255,204,.8)", "flex": 1 })) Body
     div(class=css ({ "background-color": "rgba(204,204,255,.8)", "flex": 0 })) Foot
 `
 
