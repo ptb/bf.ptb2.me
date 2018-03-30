@@ -1,12 +1,14 @@
 import React, { Fragment } from "react"
 import { body } from "@ptb/animated-transition/styles.json"
 import { css } from "@ptb/gatsby-plugin-styletron/style"
+import Head from "../parts/head.js"
 import Helmet from "react-helmet"
 
 export default (_) => pug `
   Fragment
     Helmet(bodyAttributes=({ "class": css (body) }))
-    div#head Head
+    div#head
+      Head
     div#body
       = _.children ()
     div#foot Foot
@@ -20,7 +22,6 @@ export default (_) => pug `
 // import React, { Fragment } from "react"
 // import Body from "../parts/body.js"
 // import Foot from "../parts/foot.js"
-// import Head from "../parts/head.js"
 // import Helmet from "react-helmet"
 // import Transition from "@ptb/animated-transition"
 
