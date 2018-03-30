@@ -33,12 +33,12 @@ const Press = (a) => pug `
 `
 
 export {
-  Home,
-  Rates,
+  Djs,
+  Equipment,
   Events,
   Gallery,
-  Djs,
+  Home,
   Music,
-  Equipment,
-  Press
+  Press,
+  Rates
 }
