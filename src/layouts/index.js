@@ -9,8 +9,8 @@ export default (_) => pug `
     Helmet(bodyAttributes=({ "class": css (body) }))
     div#head
       Head
-    div#body
-      div(class=css ({ "position": "relative" }))
+    div#body(class=css ({ "position": "relative" }))
+      div
         = _.children ()
     div#foot
       div(class=css ({ "position": "relative" })) Foot
