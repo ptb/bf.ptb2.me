@@ -8,8 +8,11 @@ import instance from "@ptb/gatsby-plugin-styletron/instance"
 import { driver } from "styletron-standard"
 
 const html = {
+  "background-color": "#333",
   "background-image": "url('/img/background.jpg')",
-  "background-position": "center center"
+  "background-position": "center",
+  "background-size": "cover",
+  "background-repeat": "no-repeat"
 }
 
 // -webkit-font-smoothing: antialiased;
