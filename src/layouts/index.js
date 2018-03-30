@@ -6,6 +6,7 @@ import Helmet from "react-helmet"
 import get from "lodash.get"
 import instance from "@ptb/gatsby-plugin-styletron/instance"
 import { driver } from "styletron-standard"
+import { main } from "./styles.json"
 
 const html = {
   "background-image": "url('/img/background.jpg')",
@@ -60,7 +61,7 @@ export default (_) => pug `
   div(class=css ({ "background-color": "#eee", "display": "flex", "flex-direction": "column", "min-height": "100vh" }))
     Helmet(bodyAttributes=({ "class": css (body) }))
     div(class=css ({ "background-color": "rgba(255,204,204,.8)", "flex": 0 })) Head
-    div(class=css ({ "background-color": "rgba(204,255,204,.8)", "flex": 1, "background-image": "url('/img/background.jpg')", "background-position": "50% 0", "background-size": "auto 700px", "background-repeat": "no-repeat" })) Body
+    div(class=css (main)) Body
     div(class=css ({ "background-color": "rgba(204,204,255,.8)", "flex": 0 })) Foot
 `
 
