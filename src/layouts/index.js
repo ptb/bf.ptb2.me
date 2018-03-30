@@ -35,15 +35,14 @@ export default (a) => pug `
           li: Link.press(title="Press" to="/press/") Press
     div(class=css (main)) Main
       Transition(...a)
-        Switch
-          Route(component=Home exact path="/")
-          Route(component=Rates path="/rates/")
-          Route(component=Events path="/events/")
-          Route(component=Gallery path="/gallery/")
-          Route(component=Djs path="/djs/")
-          Route(component=Music path="/music/")
-          Route(component=Equipment path="/equipment/")
-          Route(component=Press path="/press/")
+        Route(component=Home exact path="/")
+        Route(component=Rates path="/rates/")
+        Route(component=Events path="/events/")
+        Route(component=Gallery path="/gallery/")
+        Route(component=Djs path="/djs/")
+        Route(component=Music path="/music/")
+        Route(component=Equipment path="/equipment/")
+        Route(component=Press path="/press/")
       = a.children ()
     div(class=css (foot)) Foot
 `
