@@ -23,7 +23,7 @@ import { View } from "@ptb/animated-transition"
 // `
 
 export default () => pug `
-  div(style=({ "background-color": "rgba(204,255,204,0.8)" }))
+  View(style=({ "background-color": "rgba(204,255,204,0.8)" }))
     Link(to=({ "pathname": "/", "state": { "anim": "slide.back" } })) To Index
     Link(to=({ "pathname": "/" })) To Index (without transition)
     Link(to="/") To Index (without transition 2)
