@@ -3,7 +3,9 @@ import { css } from "@ptb/gatsby-plugin-styletron/style"
 import Helmet from "react-helmet"
 import Link from "gatsby-link"
 import React from "react"
+import { Route, Switch } from "react-router-dom"
 import Transition from "@ptb/animated-transition"
+import { home as Home } from "../parts/hero.js"
 
 export default (a) => pug `
   div(class=css (root))
@@ -33,6 +35,8 @@ export default (a) => pug `
           li: Link.press(title="Press" to="/press/") Press
     div(class=css (main)) Main
       Transition(...a)
+        Switch
+          Route(exact path="/" component=Home)
         = a.children ()
     div(class=css (foot)) Foot
 `
