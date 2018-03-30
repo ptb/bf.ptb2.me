@@ -3,8 +3,9 @@ import { css } from "@ptb/gatsby-plugin-styletron/style"
 import Helmet from "react-helmet"
 import Link from "gatsby-link"
 import React from "react"
+import Transition from "@ptb/animated-transition"
 
-export default (_) => pug `
+export default (a) => pug `
   div(class=css (root))
     Helmet(htmlAttributes=({ "class": css (html) }))
     Helmet(bodyAttributes=({ "class": css (body) }))
@@ -31,5 +32,7 @@ export default (_) => pug `
           li: Link.equipment(title="Equipment" to="/equipment/") Equipment
           li: Link.press(title="Press" to="/press/") Press
     div(class=css (main)) Main
+      Transition(...a)
+        = a.children ()
     div(class=css (foot)) Foot
 `
