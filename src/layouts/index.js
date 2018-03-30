@@ -5,7 +5,7 @@ import Link from "gatsby-link"
 import React from "react"
 import { Route, Switch } from "react-router-dom"
 import Transition from "@ptb/animated-transition"
-import { home as Home } from "../parts/hero.js"
+import { home as Home, rates as Rates } from "../parts/hero.js"
 
 export default (a) => pug `
   div(class=css (root))
@@ -36,7 +36,8 @@ export default (a) => pug `
     div(class=css (main)) Main
       Transition(...a)
         Switch
-          Route(exact path="/" component=Home)
+          Route(component=Home exact path="/")
+          Route(component=Rates path="/rates/")
       = a.children ()
     div(class=css (foot)) Foot
 `
