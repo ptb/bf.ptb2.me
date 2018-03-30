@@ -16,7 +16,7 @@ export default (a) => pug `
   Fragment
     Helmet(bodyAttributes=({ "class": css (body) }))
     Head
-    div
+    div(class=css ({ "position": "relative" })
       Body
         Transition(...a)
           = a.children ()
