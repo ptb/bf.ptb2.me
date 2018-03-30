@@ -15,10 +15,10 @@ import Transition from "@ptb/animated-transition"
 export default (a) => pug `
   Fragment
     Helmet(bodyAttributes=({ "class": css (body) }))
-    Head
+    Head(class=css ({ "position": "relative" })
     div
       Body(class=css ({ "position": "relative" }))
         Transition(...a)
           = a.children ()
-    Foot
+    Foot(class=css ({ "position": "relative"}))
 `
