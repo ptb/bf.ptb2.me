@@ -8,7 +8,7 @@ import instance from "@ptb/gatsby-plugin-styletron/instance"
 import { driver } from "styletron-standard"
 
 const html = {
-  "background-image": "url('//bigfundj.com/common/images/background.jpg')"
+  "background-image": "url('http://bigfundj.com/common/images/background.jpg')"
 }
 
 const Html = (_) => pug `
