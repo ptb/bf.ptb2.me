@@ -5,7 +5,7 @@ import React from "react"
 
 export default (_) => pug `
   div(class=css (root))
-    Helmet(htmlAttributes=className=css (html))
+    Helmet(htmlAttributes=({ "class": css (html) }))
     Helmet(bodyAttributes=({ "class": css (body) }))
     div(class=css (head)) Head
     div(class=css (main)) Main
