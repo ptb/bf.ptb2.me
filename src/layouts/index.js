@@ -1,11 +1,11 @@
 import { body, foot, head, html, main, root } from "./styles.json"
+import { Djs, Equipment, Events, Gallery, Home, Music, Press, Rates } from "../parts/hero.js"
+import { Route, Switch } from "react-router-dom"
 import { css } from "@ptb/gatsby-plugin-styletron/style"
 import Helmet from "react-helmet"
 import Link from "gatsby-link"
 import React from "react"
-import { Route, Switch } from "react-router-dom"
 import Transition from "@ptb/animated-transition"
-import { home as Home, rates as Rates } from "../parts/hero.js"
 
 export default (a) => pug `
   div(class=css (root))
@@ -38,6 +38,12 @@ export default (a) => pug `
         Switch
           Route(component=Home exact path="/")
           Route(component=Rates path="/rates/")
+          Route(component=Events path="/events/")
+          Route(component=Gallery path="/gallery/")
+          Route(component=Djs path="/djs/")
+          Route(component=Music path="/music/")
+          Route(component=Equipment path="/equipment/")
+          Route(component=Press path="/press/")
       = a.children ()
     div(class=css (foot)) Foot
 `
