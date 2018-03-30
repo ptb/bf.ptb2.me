@@ -1,17 +1,23 @@
-import { createElement as h } from "react"
+// import { createElement as h } from "react"
 
-export default (a) =>
-  h ("div", {}, a.children ())
+// export default (a) =>
+//   h ("div", {}, a.children ())
 
-// import React, { Fragment } from "react"
-// import { body } from "@ptb/animated-transition/styles.json"
-// import { css } from "@ptb/gatsby-plugin-styletron/style"
-// import Helmet from "react-helmet"
-// import Transition from "@ptb/animated-transition"
+import React, { Fragment } from "react"
+import Body from "../parts/body.js"
+import { body } from "@ptb/animated-transition/styles.json"
+import { css } from "@ptb/gatsby-plugin-styletron/style"
+import Foot from "../parts/foot.js"
+import Head from "../parts/head.js"
+import Helmet from "react-helmet"
+import Transition from "@ptb/animated-transition"
 
-// export default (a) => pug `
-//   Fragment
-//     Helmet(bodyAttributes=({ "class": css (body) }))
-//     Transition(...a)
-//       = a.children ()
-// `
+export default (a) => pug `
+  Fragment
+    Helmet(bodyAttributes=({ "class": css (body) }))
+    Head
+    Body
+      Transition(...a)
+        = a.children ()
+    Foot
+`
