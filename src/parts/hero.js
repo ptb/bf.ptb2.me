@@ -1,44 +1,44 @@
 import React from "react"
 
-const home = (a) => pug `
+const Home = (a) => pug `
   div Home
 `
 
-const rates = (a) => pug `
+const Rates = (a) => pug `
   div Rates
 `
 
-const events = (a) => pug `
+const Events = (a) => pug `
   div Events
 `
 
-const gallery = (a) => pug `
+const Gallery = (a) => pug `
   div Gallery
 `
 
-const djs = (a) => pug `
+const Djs = (a) => pug `
   div The DJs
 `
 
-const music = (a) => pug `
+const Music = (a) => pug `
   div Music
 `
 
-const equipment = (a) => pug `
+const Equipment = (a) => pug `
   div Equipment
 `
 
-const press = (a) => pug `
+const Press = (a) => pug `
   div Press
 `
 
 export {
-  home,
-  rates,
-  events,
-  gallery,
-  djs,
-  music,
-  equipment,
-  press
+  Home,
+  Rates,
+  Events,
+  Gallery,
+  Djs,
+  Music,
+  Equipment,
+  Press
 }
