@@ -1,5 +1,5 @@
 import { body, foot, head, html, main, root } from "./styles.json"
-import { Djs, Equipment, Events, Gallery, Home, Music, Press, Rates } from "../parts/hero.js"
+import { Djs, Equipment, Events, Gallery, Hero, Home, Music, Press, Rates } from "../parts/hero.js"
 import { Route, Switch } from "react-router-dom"
 import { css } from "@ptb/gatsby-plugin-styletron/style"
 import Helmet from "react-helmet"
@@ -36,7 +36,7 @@ export default (a) => pug `
     div(class=css (main)) Main
       Transition(...a)
         Switch
-          Route(component=Home exact path="/")
+          Route(component=Hero exact path="/")
           Route(component=Rates path="/rates/")
           Route(component=Events path="/events/")
           Route(component=Gallery path="/gallery/")
