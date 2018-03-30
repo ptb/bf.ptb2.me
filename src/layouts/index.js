@@ -15,7 +15,7 @@ import Transition from "@ptb/animated-transition"
 export default (a) => pug `
   Fragment
     Helmet(bodyAttributes=({ "class": css (body) }))
-    Head(class=css ({ "position": "relative" })
+    Head(class=css ({ "position": "relative" }))
     div
       Body(class=css ({ "position": "relative" }))
         Transition(...a)
