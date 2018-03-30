@@ -26,7 +26,7 @@ export default (a) => pug `
       nav
         ul
           li: Link.home(title="Home" to="/") Home
-          li: Link.rates(title="Rates" to="/Rates/") Rates
+          li: Link.rates(title="Rates" to="/rates/") Rates
           li: Link.events(title="Events" to="/events/") Events
           li: Link.gallery(title="Gallery" to="/gallery/") Gallery
           li: Link.djs(title="The DJs" to="/djs/") The DJs
