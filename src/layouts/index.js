@@ -12,8 +12,8 @@ export default (_) => pug `
       Link#logo(title="BIG FUN Disc Jockeys" to="/")
         h1 BIG FUN Disc Jockeys
       hr
-      p.
-        We would love to hear from you
+      p
+        | We would love to hear from you
         span :
         Link(title="info@bigfundj.com" to="mailto:info@bigfundj.com") info@bigfundj.com
         span .
