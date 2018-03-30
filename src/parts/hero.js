@@ -1,7 +1,8 @@
 import React from "react"
+import { css } from "@ptb/gatsby-plugin-styletron/style"
 
 const Home = (a) => pug `
-  div Home
+  h1(class=css ({ "color": "#fff" })) Home
 `
 
 const Rates = (a) => pug `
