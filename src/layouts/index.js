@@ -60,9 +60,9 @@ const Html = (_) => pug `
 export default (_) => pug `
   div(class=css ({ "background-color": "#eee", "display": "flex", "flex-direction": "column", "min-height": "100vh" }))
     Helmet(bodyAttributes=({ "class": css (body) }))
-    div(class=css ({ "background-color": "rgba(255,204,204,.8)", "flex": 0 })) Head
+    div(class=css ({ "background-color": "rgba(255,204,204,.8)" })) Head
     div(class=css (main)) Body
-    div(class=css ({ "background-color": "rgba(204,204,255,.8)", "flex": 0 })) Foot
+    div(class=css ({ "background-color": "rgba(204,204,255,.8)" })) Foot
 `
 
     // div#head(class=css ({ "background-color": "rgba(255,204,204,.8)" }))
