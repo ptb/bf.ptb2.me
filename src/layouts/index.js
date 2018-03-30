@@ -7,6 +7,14 @@ import get from "lodash.get"
 import instance from "@ptb/gatsby-plugin-styletron/instance"
 import { driver } from "styletron-standard"
 
+const html = {
+  "background-image": "url('//bigfundj.com/common/images/background.jpg')"
+}
+
+const Html = (_) => pug `
+  Helmet(htmlAttributes=({ "class": css (html) }))
+`
+
 export default (_) => pug `
   div(class=css ({ "background-color": "#eee", "display": "flex", "flex-direction": "column", "min-height": "100vh", "max-width": "975px", "margin": "auto" }))
     Helmet(bodyAttributes=({ "class": css (body) }))
