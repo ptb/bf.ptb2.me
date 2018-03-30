@@ -7,7 +7,7 @@ import Helmet from "react-helmet"
 export default (_) => pug `
   Fragment
     Helmet(bodyAttributes=({ "class": css (body) }))
-    div#head
+    div#head(class=css ({ "position": "relative" }))
       Head
     div#body(class=css ({ "position": "relative" }))
       div
