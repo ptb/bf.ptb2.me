@@ -8,16 +8,20 @@ import instance from "@ptb/gatsby-plugin-styletron/instance"
 import { driver } from "styletron-standard"
 
 export default (_) => pug `
-  div(class=css ({ "display": "flex" }))
+  div(class=css ({ "display": "flex", "flex-direction": "column" }))
     Helmet(bodyAttributes=({ "class": css (body) }))
-    div#head(class=css ({ "background-color": "rgba(255,204,204,.8)" }))
-      div Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    span Lipsum incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-    div#body(class=css ({ "background-color": "rgba(204,255,204,.8)", "position": "relative", "min-width": "100%", "min-height": "100%" }))
-      div(class=css ({ "background-color": "rgba(255,255,204,.8)", "position": "relative", "transform": "translate3d(80%,0,0)" })) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    div#head(class=css ({ "background-color": "rgba(255,204,204,.8)" }))
-      div Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    div(class=css ({ "background-color": "rgba(255,204,204,.8)" }))
+    div(class=css ({ "background-color": "rgba(204,255,204,.8)" }))
+    div(class=css ({ "background-color": "rgba(204,204,255,.8)" }))
 `
+
+    // div#head(class=css ({ "background-color": "rgba(255,204,204,.8)" }))
+    //   div Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    // span Lipsum incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+    // div#body(class=css ({ "background-color": "rgba(204,255,204,.8)", "position": "relative", "min-width": "100%", "min-height": "100%" }))
+    //   div(class=css ({ "background-color": "rgba(255,255,204,.8)", "position": "relative", "transform": "translate3d(80%,0,0)" })) Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    // div#head(class=css ({ "background-color": "rgba(255,204,204,.8)" }))
+    //   div Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     //   div hi
     // div#foot(class=css ({ "background-color": "rgba(204,204,255,.8)" }))
     //   div Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
