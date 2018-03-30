@@ -16,7 +16,8 @@ export default (_) => pug `
         | We would love to hear from you
         span :
         |
-        Link(title="info@bigfundj.com" to="mailto:info@bigfundj.com") info@bigfundj.com
+        Link(title="info@bigfundj.com" to="mailto:info@bigfundj.com")
+          info@bigfundj.com
         span .
       nav
         ul
