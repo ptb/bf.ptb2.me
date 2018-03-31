@@ -6,7 +6,7 @@ import Helmet from "react-helmet"
 import Link from "gatsby-link"
 import React from "react"
 import Transition from "@ptb/animated-transition"
-import background from "background.jpg"
+import background from "../images/background.jpg"
 
 export default (a) => pug `
   div(class=css (root))
