@@ -1,5 +1,5 @@
 import { body, foot, head, html, main, root } from "./styles.js"
-import { Djs, Equipment, Events, Gallery, Hero, Home, Music, Press, Rates } from "../parts/hero.js"
+import { Djs, Equipment, Events, Gallery, Hero, Music, Press, Rates } from "../parts/hero.js"
 import { Route, Switch } from "react-router-dom"
 import { css } from "@ptb/gatsby-plugin-styletron/style"
 import Helmet from "react-helmet"
