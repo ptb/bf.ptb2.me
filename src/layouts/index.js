@@ -10,7 +10,7 @@ import background from "../images/background.jpg"
 
 export default (a) => pug `
   div(class=css (root))
-    Helmet(htmlAttributes=({ "class": css ({ ...html, "background-image": "url('" + background + "')" }) }))
+    Helmet(htmlAttributes=({ "class": css ({ {...html}, "background-image": "url('" + background + "')" }) }))
     Helmet(bodyAttributes=({ "class": css (body) }))
     header(class=css (head))
       Link#logo(title="BIG FUN Disc Jockeys" to="/")
