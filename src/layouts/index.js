@@ -33,7 +33,7 @@ export default (a) => pug `
           li: Link.music(title="Music" to="/music/") Music
           li: Link.equipment(title="Equipment" to="/equipment/") Equipment
           li: Link.press(title="Press" to="/press/") Press
-    div(class=css (main)) Main
+    main(class=css (main))
       Transition(...a)
         Switch
           Route(component=Hero exact path="/")
